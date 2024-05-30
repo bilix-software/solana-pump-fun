@@ -5,7 +5,7 @@ import { getCoinData } from './api';
 import { TransactionMode } from './types';
 import { GLOBAL, FEE_RECIPIENT, SYSTEM_PROGRAM_ID, RENT, PUMP_FUN_ACCOUNT, PUMP_FUN_PROGRAM, ASSOC_TOKEN_ACC_PROG } from './constants';
 
-export async function pumpFunBuy(transactionMode: TransactionMode, payerPrivateKey: string, mintStr: string, solIn: number, slippageDecimal: number = 0.25) {
+export async function pumpFunBuy(transactionMode: TransactionMode, payerPrivateKey: string, mintStr: string, solIn: number, priorityFeeInSol: number = 0, slippageDecimal: number = 0.25) {
     try {
         const connection = new Connection(
             clusterApiUrl("mainnet-beta"),
@@ -85,7 +85,7 @@ export async function pumpFunBuy(transactionMode: TransactionMode, payerPrivateK
         });
         txBuilder.add(instruction);
 
-        const transaction = await createTransaction(connection, txBuilder.instructions, payer.publicKey);
+        const transaction = await createTransaction(connection, txBuilder.instructions, payer.publicKey, priorityFeeInSol);
         if (transactionMode == TransactionMode.Execution) {
             const signature = await sendAndConfirmTransactionWrapper(connection, transaction, [payer]);
             console.log('Buy transaction confirmed:', signature);
@@ -100,7 +100,7 @@ export async function pumpFunBuy(transactionMode: TransactionMode, payerPrivateK
 }
 
 
-export async function pumpFunSell(transactionMode: TransactionMode, payerPrivateKey: string, mintStr: string, tokenBalance: number, slippageDecimal: number = 0.25) {
+export async function pumpFunSell(transactionMode: TransactionMode, payerPrivateKey: string, mintStr: string, tokenBalance: number, priorityFeeInSol: number = 0, slippageDecimal: number = 0.25) {
     try {
         const connection = new Connection(
             clusterApiUrl("mainnet-beta"),
@@ -171,7 +171,7 @@ export async function pumpFunSell(transactionMode: TransactionMode, payerPrivate
         });
         txBuilder.add(instruction);
 
-        const transaction = await createTransaction(connection, txBuilder.instructions, payer.publicKey);
+        const transaction = await createTransaction(connection, txBuilder.instructions, payer.publicKey, priorityFeeInSol);
 
         if (transactionMode == TransactionMode.Execution) {
             const signature = await sendAndConfirmTransactionWrapper(connection, transaction, [payer]);

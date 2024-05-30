@@ -16,13 +16,14 @@ class Example {
         const solIn = 0.0001; // Example value, adjust as needed
         const slippageDecimal = 0.25; // Example value, adjust as needed
         const tokenBalance = 1000; // Example value, adjust as needed
+        const priorityFeeInSol = 0.0001; // Example value for tip to get faster inclusion, adjust as needed
 
         try {
             // Call the buy function
-            await pumpFunBuy(this.transactionMode, this.payerPrivateKey, this.mintAddress, solIn, slippageDecimal);
+            await pumpFunBuy(this.transactionMode, this.payerPrivateKey, this.mintAddress, solIn, priorityFeeInSol, slippageDecimal);
 
             // Call the sell function
-            await pumpFunSell(this.transactionMode, this.payerPrivateKey, this.mintAddress, tokenBalance, slippageDecimal);
+            //await pumpFunSell(this.transactionMode, this.payerPrivateKey, this.mintAddress, tokenBalance,priorityFeeInSol, slippageDecimal);
         } catch (error) {
             console.error('Error in main function:', error);
         }
