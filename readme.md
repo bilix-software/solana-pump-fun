@@ -6,6 +6,7 @@ Also modified the code to send the associated token account creation in a single
 
 Solana Pump Fun is an open-source package designed to facilitate the execution and simulation of buy and sell transactions for pump.fun on the Solana blockchain. This tool is useful for developers and enthusiasts looking to understand transaction mechanics and resource consumption on Solana.
 
+Services are for hire, contact me at https://t.me/bilixsoftware or info@bilix.io
 ## Features
 
 - Simulates buy and sell transactions for pump.fun on the Solana blockchain.
