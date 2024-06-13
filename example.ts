@@ -30,7 +30,16 @@ class Example {
     }
 }
 
-// Usage
+/** Usage
+ *  --Generating a private key
+ *  Using solana.web3 Keypair
+ *  const newKeypair = Keypair.generate();
+    const newKeypairArray = Array.from(newKeypair.secretKey);
+    const newPrivateKey = bs58.encode(newKeypair.secretKey);
+
+    The bs58 encoded secret key is what you want to put in below as private key. You will see that this is an 88 character string and
+    matches with the export from a phantom wallet.
+ */
 const privateKey = 'your_private_key'; // Replace with your actual private key
 const mintAddress = 'your_token_mint_address'; //Replace with actual token mint address
 const txMode = TransactionMode.Simulation; //Set to simulate to test, Execution to perform
