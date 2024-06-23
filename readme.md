@@ -1,5 +1,6 @@
 
 # Solana Pump Fun
+New: There is now also a telegram bot available for my [bundler]([https://nodejs.org/](https://github.com/bilix-software/pump-fun-bundler)) at: https://t.me/viper_pump_bot.  Note: this is a first version so any feedback is appreciated.
 
 Notice: This project was inspired by https://github.com/Allen-Taylor/pump_fun_py and modified for use in typescript with some extra additions.
 Also modified the code to send the associated token account creation in a single transaction with the buy or sell for increased speed.
