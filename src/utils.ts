@@ -15,7 +15,7 @@ export async function createTransaction(
   priorityFeeInSol: number = 0
 ): Promise<Transaction> {
   const modifyComputeUnits = ComputeBudgetProgram.setComputeUnitLimit({
-      units: 1400000,
+      units: 1000000,
   });
 
   const transaction = new Transaction().add(modifyComputeUnits);
