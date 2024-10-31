@@ -31,7 +31,7 @@ export async function createTransaction(
   transaction.add(...instructions);
 
   transaction.feePayer = payer;
-  transaction.recentBlockhash = (await connection.getRecentBlockhash()).blockhash;
+  transaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
   return transaction;
 }
 
